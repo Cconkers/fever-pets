@@ -1,0 +1,8 @@
+.pets-section {
+  width: 90vw;
+  height: auto;
+  padding: 1rem;
+  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+}

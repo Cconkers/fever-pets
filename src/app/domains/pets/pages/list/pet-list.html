@@ -1,0 +1,7 @@
+<section class="pets-section">
+  @for (pet of pets(); track pet.id) {
+  <pet-card [pet]="pet"></pet-card>
+  } @empty {
+  <h1>There are no items.</h1>
+  }
+</section>

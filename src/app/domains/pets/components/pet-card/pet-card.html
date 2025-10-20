@@ -1,0 +1,16 @@
+<mat-card class="pet-card" appearance="outlined">
+  <mat-card-header>
+    <div mat-card-avatar class="pet-card__header"></div>
+    <mat-card-title>{{pet.name}}</mat-card-title>
+    <mat-card-subtitle>{{pet.kind}}</mat-card-subtitle>
+  </mat-card-header>
+  <img class="pet-card_image" mat-card-image [src]="pet.photo_url" [alt]="pet.kind">
+  <mat-card-content>
+    <p>
+      {{pet.description}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button matButton>LIKE</button>
+  </mat-card-actions>
+</mat-card>
