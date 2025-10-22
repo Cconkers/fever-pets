@@ -1,46 +1,12 @@
 @defer (when !petsStore.isLoadingPets()) {
-<!-- Upper menu bar -->
 
-
-<!-- Pet sort menu -->
+<!-- Pet list upper menu bar -->
 <div class="pets-list-menu">
-  <!-- Pet language menu -->
-
-  <div class="pets-list-menu--language">
-    <button matButton="elevated" [matMenuTriggerFor]="lang">{{i18n.t('language.selector')}}</button>
-    <mat-menu #lang="matMenu">
-      @for (lang of i18n.languages; track lang) {
-      <button [ngClass]="i18n.currentLang() === lang ? 'active' : ''" mat-menu-item (click)="i18n.setLang(lang)">
-        {{ i18n.t(`language.${lang}`) }}
-      </button>
-      }
-    </mat-menu>
-  </div>
-
-
-  <div class="pets-list-menu--sort">
-    <button matButton="elevated" [matMenuTriggerFor]="animals">{{ i18n.t('pet.sortPetButtom') }}</button>
-  </div>
+  <pets-sort-menu></pets-sort-menu>
 </div>
 
-<mat-menu #animals="matMenu">
-  @for (sort of petsSort; track sort.value) {
-  <button mat-menu-item [matMenuTriggerFor]="sortDirection" (menuOpened)="updateSortValue(sort.value)">{{
-    i18n.t(`pet.${sort.value}`) }}</button>
-  }
-  <button mat-menu-item [matMenuTriggerFor]="sortClear">{{ i18n.t('pet.clearSorting') }}</button>
-</mat-menu>
-
-<mat-menu #sortDirection="matMenu">
-  <button mat-menu-item (click)="changeSorting('asc')">{{ i18n.t('pet.ascending') }}</button>
-  <button mat-menu-item (click)="changeSorting('desc')">{{ i18n.t('pet.descending') }}</button>
-</mat-menu>
-<mat-menu #sortClear="matMenu">
-  <button mat-menu-item (click)="clearSorting()">{{ i18n.t('pet.clear') }}</button>
-</mat-menu>
-
 <!-- Main section pets list-->
-<section class="pets-section">
+<section class="pets-main-section">
   @for (pet of pets(); track pet.id) {
   <pet-card [pet]="pet"></pet-card>
   } @empty {
@@ -49,13 +15,9 @@
 </section>
 
 <!-- Lower section pets list -->
-<div class="pets-list-menu--paginator">
-  <mat-paginator [pageSizeOptions]="[5, 10, 20, 30, 50]" [length]="petsStore.petsTotal()"
-    [pageIndex]="petsStore.paginatedPets().page - 1" [pageSize]="petsStore.paginatedPets().perPage"
-    (page)="onPageChange($event)">
-  </mat-paginator>
-</div>
-
+<!-- Pets paginator -->
+<pets-paginator></pets-paginator>
 } @placeholder {
+<!-- Loader -->
 <app-loader></app-loader>
 }

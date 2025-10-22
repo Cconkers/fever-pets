@@ -1,0 +1,23 @@
+<!-- Pet sort menu -->
+
+  <!-- Pet language menu -->
+  <div class="pets-list-menu--sort">
+    <button matButton="elevated" [matMenuTriggerFor]="animals">{{ i18n.t('pet.sortPetButtom') }}</button>
+
+</div>
+
+<mat-menu #animals="matMenu">
+  @for (sort of petsSort; track sort.value) {
+  <button mat-menu-item [matMenuTriggerFor]="sortDirection" (menuOpened)="updateSortValue(sort.value)">{{
+    i18n.t(`pet.${sort.value}`) }}</button>
+  }
+  <button mat-menu-item [matMenuTriggerFor]="sortClear">{{ i18n.t('pet.clearSorting') }}</button>
+</mat-menu>
+
+<mat-menu #sortDirection="matMenu">
+  <button mat-menu-item (click)="changeSorting('asc')">{{ i18n.t('pet.ascending') }}</button>
+  <button mat-menu-item (click)="changeSorting('desc')">{{ i18n.t('pet.descending') }}</button>
+</mat-menu>
+<mat-menu #sortClear="matMenu">
+  <button mat-menu-item (click)="clearSorting()">{{ i18n.t('pet.clear') }}</button>
+</mat-menu>

@@ -12,8 +12,6 @@ export class I18nService {
   private safeStorage = inject(SafeStorageService);
   currentLang = signal<Lang>('en');
 
-
-
   readonly languages: Lang[] = [
     'en',
     'es'

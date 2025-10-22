@@ -5,10 +5,18 @@
   align-items: center;
   gap: 1rem;
   padding: 1rem;
-}
 
-.pet-detail__img {
-  width: 20rem;
-  height: 20rem;
-  object-fit: cover;
+  &_stats {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    width: 100%;
+    align-items: center;
+  }
+
+  &__img {
+    width: 20rem;
+    height: 20rem;
+    object-fit: cover;
+  }
 }

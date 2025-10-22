@@ -1,0 +1,5 @@
+<!-- Pet of day button -->
+<button (click)="toggleFavorite(pet)" class="pet-of-day--button" matButton="elevated">
+  <mat-icon>{{ isFavorite ? 'favorite' : 'favorite_border' }}</mat-icon>
+  {{ isFavorite ? i18n.t('pet.ofTheDay') : i18n.t('pet.setAsPetOfTheDay') }}
+</button>

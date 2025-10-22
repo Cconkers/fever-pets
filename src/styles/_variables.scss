@@ -12,11 +12,9 @@ body {
   min-height: 100vh;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgb(255 255 255 / 65%);
-  pointer-events: none;
-  z-index: 0;
+// Hide the pseudo element when the pet-detail component is present
+body:has(pet-detail) {
+  &::before {
+    background: transparent;
+  }
 }

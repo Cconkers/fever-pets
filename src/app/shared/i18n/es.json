@@ -8,7 +8,7 @@
   "pet.status.very healthy": "Muy saludable",
   "pet.profile": "{name} - {kind}",
   "pet.ofTheDay": "Mascota del día",
-  "pet.sortPetButtom": "Ordenar",
+  "pet.sortPetButtom": "Ordenar mascotas",
   "pet.clearSorting": "Limpiar ordenamiento",
   "pet.clear": "Limpiar",
   "pet.ascending": "Ascendente",
@@ -19,11 +19,14 @@
   "pet.length": "Longitud",
   "pet.status": "Estado",
   "pet.kind": "Tipo",
+  "pet.description": "Descripción",
   "pet.noPetsFound": "No se encontraron mascotas.",
   "pet.setAsPetOfTheDay": "Mascota del día",
   "pet.lockToast": "Mascota del día bloqueada hasta ",
 
   "language.selector": "Lenguaje",
   "language.en": "Inglés",
-  "language.es": "Español"
+  "language.es": "Español",
+
+  "back": "Atrás"
 }

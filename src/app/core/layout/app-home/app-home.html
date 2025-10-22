@@ -1,5 +1,15 @@
 <!-- <app-header></app-header> -->
-<main>
+<main class="home">
+  <div class="home__language">
+    <button matButton="elevated" [matMenuTriggerFor]="lang">{{i18n.t('language.selector')}}</button>
+    <mat-menu #lang="matMenu">
+      @for (lang of i18n.languages; track lang) {
+      <button [ngClass]="i18n.currentLang() === lang ? 'active' : ''" mat-menu-item (click)="i18n.setLang(lang)">
+        {{ i18n.t(`language.${lang}`) }}
+      </button>
+      }
+    </mat-menu>
+  </div>
   <router-outlet></router-outlet>
 </main>
 <!-- <app-footer></app-footer> -->

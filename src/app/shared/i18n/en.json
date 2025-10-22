@@ -21,6 +21,7 @@
   "pet.length": "Length",
   "pet.status": "Status",
   "pet.kind": "Kind",
+  "pet.description": "Description",
   "pet.noPetsFound": "No pets found.",
 
   "pet.healthy": "Healthy",
@@ -29,5 +30,7 @@
 
   "language.selector": "Language",
   "language.en": "English",
-  "language.es": "Spanish"
+  "language.es": "Spanish",
+
+  "back": "Back"
 }

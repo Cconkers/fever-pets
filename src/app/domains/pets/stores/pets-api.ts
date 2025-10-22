@@ -32,8 +32,17 @@ export class PetsApi {
       );
   }
 
-  getPetDetail(id: string) {
-    return this.http.get<PetWithHealth>(`${this.baseUrl}/${API_CONFIG.ENDPOINTS.PETS}/${id}`);
+  getPetDetail(id: number) {
+    return this.http.get<PetWithHealth>(`${this.baseUrl}/${API_CONFIG.ENDPOINTS.PETS}/${id}`)
+      .pipe(
+        map((response) => {
+          return HealthCalculator.withHealth(response)
+        }),
+        catchError(err => {
+          console.error('Error fetching pet detail', err);
+          return of({} as PetWithHealth);
+        })
+      );
   }
 
 }

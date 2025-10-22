@@ -1,4 +1,4 @@
-<mat-card class="pet-card" (click)="goToDetail(pet)" appearance="outlined">
+<mat-card class="pet-card" (click)="goToDetail(pet.id)" appearance="outlined">
   <div class="pet-card_left-content">
     <div class="pet-card_left-content_image-container">
       <img class="pet-card_left-content_image-container--pet-img" [src]="pet.photo_url" [alt]="pet.kind">
@@ -25,12 +25,11 @@
         <h3 class="health-chip" [ngClass]="getClassHealth(pet.healthTier)">{{
           i18n.t(`pet.status.${pet.healthTier}`) }}</h3>
       </div>
+
+
       <mat-card-actions class="pet-card_center-content_right-down_actions">
-        <button (click)="toggleFavorite(pet)" class="pet-card_center-content_right-down_actions--button"
-          matButton="elevated">
-          <mat-icon>{{ isFavorite ? 'favorite' : 'favorite_border' }}</mat-icon>
-          {{ isFavorite ? i18n.t('pet.ofTheDay') : i18n.t('pet.setAsPetOfTheDay') }}
-        </button>
+        <!-- Pet of day button -->
+        <pet-of-day-button [pet]="pet"></pet-of-day-button>
       </mat-card-actions>
     </div>
 

@@ -1,0 +1,7 @@
+<!-- Pets paginator -->
+<div class="pets-paginator">
+  <mat-paginator [pageSizeOptions]="[5, 10, 20, 30, 50]" [length]="petsStore.petsTotal()"
+    [pageIndex]="petsStore.paginatedPets().page - 1" [pageSize]="petsStore.paginatedPets().perPage"
+    (page)="onPageChange($event)">
+  </mat-paginator>
+</div>

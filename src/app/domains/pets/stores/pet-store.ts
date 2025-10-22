@@ -3,17 +3,26 @@ import { PetsApi } from './pets-api';
 import { PetSortApi, PetSortDirection, PetSortValue, PetsPagination, PetWithHealth } from '../models/pet.models';
 import { SafeStorageService } from '../../../core/services/safe-storage.service';
 import { API_CONFIG } from '../../../core/http/api-config';
+import { Router } from '@angular/router';
+
 
 const PAGINATION_KEY = 'petPagination';
+const PET_DETAIL_KEY = 'petDetailKey';
 
 @Injectable({ providedIn: 'root' })
 export class PetsStore {
   private apiPets = inject(PetsApi);
   private storageSafe = inject(SafeStorageService);
-
+  private router = inject(Router);
 
   isLoadingPets = signal(false);
   pets = signal([] as PetWithHealth[]);
+
+  petIdSelected = signal<number>(
+    Number(this.router.url.split('/').pop())
+  );
+  petDetail = signal<PetWithHealth | null>(null);
+
   sortPets = signal<PetSortApi | null>(null);
   paginatedPets = signal<PetsPagination>(
     JSON.parse(this.storageSafe.getItem(PAGINATION_KEY) ?? 'null') ??
@@ -57,6 +66,43 @@ export class PetsStore {
       },
       error: (err) => {
         console.error('Error loading pets', err);
+        this.isLoadingPets.set(false);
+      }
+    });
+  }
+
+  updatePetDetail(petId: number): void {
+    this.petIdSelected.set(petId);
+    this.storageSafe.setItem(PET_DETAIL_KEY, this.petIdSelected().toString());
+    this.loadPetDetail();
+  }
+
+  loadPetDetail(): void {
+    this.isLoadingPets.set(true);
+    const urlId = this.router.url.split('/').pop();
+    console.log(urlId);
+
+    if (urlId && !isNaN(+urlId)) {
+      this.petIdSelected.set(+urlId);
+    } else {
+      const storedId = this.storageSafe.getItem(PET_DETAIL_KEY);
+      console.log(storedId);
+      if (storedId) {
+        this.petIdSelected.set(+storedId);
+      } else {
+        console.error('No pet id found in storage and url');
+        this.router.navigate(['/pets']);
+      }
+    }
+
+    this.apiPets.getPetDetail(this.petIdSelected()).subscribe({
+      next: (pet) => {
+        this.petDetail.set(pet);
+        this.isLoadingPets.set(false);
+        this.router.navigate(['/pets', pet.id]);
+      },
+      error: (err) => {
+        console.error('Error loading pet detail', err);
         this.isLoadingPets.set(false);
       }
     });
