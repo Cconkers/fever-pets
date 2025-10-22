@@ -1,0 +1,29 @@
+// Health Tier Styles
+.health--good {
+  color: #1d731df0;
+}
+
+.health--bad {
+  color: #bb4343;
+}
+
+.health--very-good {
+  color: #2683c5;
+}
+
+.health-chip {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border-radius: 0.75rem;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.health--good.health-chip {
+  background: rgba(16, 185, 129, 0.12);
+}
+.health--very-good.health-chip {
+  background: #43a6ed57;
+}
+.health--bad.health-chip {
+  background: rgba(239, 68, 68, 0.12);
+}

@@ -1,0 +1,33 @@
+{
+  "pet.kind.dog": "Dog",
+  "pet.kind.cat": "Cat",
+  "pet.kind.hamster": "Hamster",
+  "pet.kind.parrot": "Parrot",
+  "pet.status.healthy": "Healthy",
+  "pet.status.unhealthy": "Unhealthy",
+  "pet.status.very healthy": "Very Healthy",
+  "pet.profile": "{name} - {kind}",
+  "pet.ofTheDay": "Pet of the Day",
+  "pet.setAsPetOfTheDay": "Pet of the Day",
+  "pet.lockToast": "Pet of the Day locked until",
+  "pet.sortPetButtom": "Sort Pets",
+  "pet.clearSorting": "Clear sorting",
+  "pet.clear": "Clear",
+  "pet.ascending": "Ascending",
+  "pet.descending": "Descending",
+  "pet.name": "Name",
+  "pet.weight": "Weight",
+  "pet.height": "Height",
+  "pet.length": "Length",
+  "pet.status": "Status",
+  "pet.kind": "Kind",
+  "pet.noPetsFound": "No pets found.",
+
+  "pet.healthy": "Healthy",
+  "pet.unhealthy": "Unhealthy",
+  "pet.veryHealthy": "Very Healthy",
+
+  "language.selector": "Language",
+  "language.en": "English",
+  "language.es": "Spanish"
+}

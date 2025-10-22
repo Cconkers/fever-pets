@@ -1,16 +1,38 @@
-<mat-card class="pet-card" appearance="outlined">
-  <mat-card-header>
-    <div mat-card-avatar class="pet-card__header"></div>
-    <mat-card-title>{{pet.name}}</mat-card-title>
-    <mat-card-subtitle>{{pet.kind}}</mat-card-subtitle>
-  </mat-card-header>
-  <img class="pet-card_image" mat-card-image [src]="pet.photo_url" [alt]="pet.kind">
-  <mat-card-content>
-    <p>
-      {{pet.description}}
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button matButton>LIKE</button>
-  </mat-card-actions>
+<mat-card class="pet-card" (click)="goToDetail(pet)" appearance="outlined">
+  <div class="pet-card_left-content">
+    <div class="pet-card_left-content_image-container">
+      <img class="pet-card_left-content_image-container--pet-img" [src]="pet.photo_url" [alt]="pet.kind">
+    </div>
+  </div>
+
+  <div class="pet-card_center-content">
+
+    <div class="pet-card_center-content_right-up">
+      <h3 class="pet-card_center-content_right-up--stats">
+        {{ i18n.t('pet.profile', { name: pet.name, kind: i18n.t(`pet.kind.${pet.kind.toLowerCase()}`) }) }}
+      </h3>
+
+      <div class="pet-card_center-content_right-up--grid">
+        <p>{{ i18n.t('pet.length') }}: {{pet.length}} cm</p>
+        <p>{{ i18n.t('pet.height') }}: {{pet.height}} cm</p>
+        <p>{{ i18n.t('pet.weight') }}: {{pet.weight}} g</p>
+      </div>
+    </div>
+
+    <div class="pet-card_center-content_right-down">
+      <div class="pet-card_center-content_right-down--health">
+        <h3>{{ i18n.t('pet.status') }}:</h3>
+        <h3 class="health-chip" [ngClass]="getClassHealth(pet.healthTier)">{{
+          i18n.t(`pet.status.${pet.healthTier}`) }}</h3>
+      </div>
+      <mat-card-actions class="pet-card_center-content_right-down_actions">
+        <button (click)="toggleFavorite(pet)" class="pet-card_center-content_right-down_actions--button"
+          matButton="elevated">
+          <mat-icon>{{ isFavorite ? 'favorite' : 'favorite_border' }}</mat-icon>
+          {{ isFavorite ? i18n.t('pet.ofTheDay') : i18n.t('pet.setAsPetOfTheDay') }}
+        </button>
+      </mat-card-actions>
+    </div>
+
+  </div>
 </mat-card>

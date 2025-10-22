@@ -1,0 +1,14 @@
+.pet-detail {
+  width: 95vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.pet-detail__img {
+  width: 20rem;
+  height: 20rem;
+  object-fit: cover;
+}

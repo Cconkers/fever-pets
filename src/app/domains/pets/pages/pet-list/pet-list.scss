@@ -1,0 +1,38 @@
+.pets-list-menu {
+  display: flex;
+  width: 100%;
+  height: 3rem;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--mat-sys-surface);
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 1px 4px 1px hwb(0deg 0% 100% / 29%);
+
+  &--paginator {
+    display: flex;
+    width: 100%;
+    height: 4rem;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--mat-sys-surface);
+    position: fixed;
+    bottom: 0;
+    z-index: 10;
+    box-shadow: 0 -1px 4px 1px hwb(0deg 0% 100% / 29%);
+  }
+}
+
+.pets-section {
+  width: 95vw;
+  padding: 5rem 2rem;
+  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+  justify-items: center;
+}
+
+.active {
+  background-color: var(--mat-sys-inverse-primary);
+}

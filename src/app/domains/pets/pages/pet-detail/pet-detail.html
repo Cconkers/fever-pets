@@ -1,0 +1,19 @@
+<h1>HELLO WORLD</h1>
+@if(!isLoading && pet){
+<div class="pet-detail">
+  <button mat-button (click)="goBack()">
+    ? {{ i18n.t('back') }}
+  </button>
+
+  <h2>{{ i18n.t('pet.profile', { name: pet.name, kind: i18n.t(`pet.kind.${pet.kind.toLowerCase()}`) }) }}</h2>
+
+  <img [src]="pet.photo_url" [alt]="pet.kind" class="pet-detail__img" />
+
+  <p><strong>{{ i18n.t('pet.status') }}:</strong> {{ i18n.t(`pet.status.${pet.healthTier}`) }}</p>
+  <p><strong>{{ i18n.t('pet.length') }}:</strong> {{ pet.length }} cm</p>
+  <p><strong>{{ i18n.t('pet.height') }}:</strong> {{ pet.height }} cm</p>
+  <p><strong>{{ i18n.t('pet.weight') }}:</strong> {{ pet.weight }} g</p>
+
+  <p><strong>{{ i18n.t('description') }}:</strong> {{ pet.description }}</p>
+</div>
+}

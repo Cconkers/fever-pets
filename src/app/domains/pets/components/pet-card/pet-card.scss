@@ -1,0 +1,103 @@
+@use "../../../../../styles/pet-styles.scss" as *;
+
+.pet-card {
+  width: 30rem;
+  display: flex;
+  justify-content: space-evenly;
+  height: 15rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  box-shadow:
+    inset 0 0 0px 4px rgb(114, 196, 255),
+    0px 3px 1px 2px rgba(0, 0, 0, 0.2);
+  flex-direction: row;
+  &:hover {
+    box-shadow:
+      inset 0px 0px 0px 4px rgb(26, 160, 255),
+      0px 6px 1px 7px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transform: translateY(-4px);
+    transition: all 0.3s ease-in-out;
+  }
+
+  &_left-content {
+    display: flex;
+    flex-direction: column;
+
+    &_image-container {
+      display: flex;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      &--pet-img {
+        width: 13rem;
+        height: 13rem;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: top center;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.373);
+        border: 4px solid rgb(114, 196, 255);
+      }
+    }
+  }
+
+  &_center-content {
+    display: flex;
+    flex-direction: column;
+
+    &_right-up {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      h3 {
+        margin-top: 0.7rem;
+        margin-bottom: 0.5rem;
+      }
+
+      &--grid {
+        display: flex;
+        flex-direction: column;
+        p {
+          margin: 0.2rem;
+        }
+      }
+      &--stats {
+        display: inline-block;
+        background-color: rgba(114, 196, 255, 0.424);
+        color: #1e1e1e;
+        font-weight: 500;
+        text-align: center;
+        padding: 0.3rem 1rem;
+        border-radius: 10px;
+        align-self: center;
+        margin-top: 0.5rem;
+        // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+      }
+    }
+    &_right-down {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &--health {
+        display: flex;
+        column-gap: 0.5rem;
+        align-items: center;
+
+        h3 {
+          margin-top: 1rem;
+          margin-bottom: 0.3rem;
+          font-weight: 400;
+        }
+      }
+
+      &--button {
+        .mat-mdc-raised-button,
+        .mat-mdc-raised-button .mdc-button__ripple {
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+}

@@ -35,6 +35,8 @@ export class CatHealthStrategy extends DefaultHealthStrategy {
  * Factory que decide qué estrategia usar según el tipo de pet.
  */
 export class HealthCalculator {
+
+
   private static getStrategy(pet: Pet): HealthStrategy {
     switch (pet.kind) {
       case 'cat': return new CatHealthStrategy();
@@ -47,4 +49,16 @@ export class HealthCalculator {
     const tier = this.getStrategy(pet).compute(pet);
     return { ...pet, healthScore, healthTier: tier };
   }
+
+
+  private static readonly HEALTH_CLASS_MAP: Record<HealthTier, string> = {
+    healthy: 'health--good',
+    'very healthy': 'health--very-good',
+    unhealthy: 'health--bad',
+  };
+
+  static getPetHealthClass(healthTier: HealthTier): string {
+    return HealthCalculator.HEALTH_CLASS_MAP[healthTier] ?? '';
+  }
+
 }
