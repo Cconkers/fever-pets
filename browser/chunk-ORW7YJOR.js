@@ -1,0 +1,1 @@
+import"./chunk-7CGTOI24.js";var o=[{path:"",component:(await import("./chunk-DORAG5RZ.js")).AppHomeComponent,children:[{path:"",redirectTo:"pets",pathMatch:"full"},{path:"pets",children:[{path:"",loadComponent:()=>import("./chunk-GDDWXVUJ.js").then(t=>t.PetList)},{path:":id",loadComponent:()=>import("./chunk-7YCIUUF4.js").then(t=>t.PetDetailComponent)}]}]}];export{o as routes};
