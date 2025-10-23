@@ -22,22 +22,15 @@
                 "output": "assets"
               }
             ],
-            "styles": [
-              "src/styles/custom-theme.scss",
-              "src/styles/styles.scss"
-            ],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            "styles": ["src/styles/custom-theme.scss", "src/styles/styles.scss"],
+            "outputMode": "static"
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
+                  "maximumWarning": "600kB",
                   "maximumError": "1MB"
                 },
                 {
@@ -47,6 +40,11 @@
                 }
               ],
               "outputHashing": "all"
+            },
+            "pages": {
+              "outputMode": "static",
+              "outputHashing": "all",
+              "baseHref": "https://github.com/Cconkers/fever-pets"
             },
             "development": {
               "optimization": false,
@@ -82,18 +80,13 @@
                 "output": "assets"
               }
             ],
-            "styles": [
-              "src/styles/styles.scss"
-            ]
+            "styles": ["src/styles/styles.scss"]
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         }
       }
@@ -101,8 +94,6 @@
   },
   "cli": {
     "analytics": "c55c40b9-b67b-4a66-9ee9-f039f40063e3",
-    "schematicCollections": [
-      "angular-eslint"
-    ]
+    "schematicCollections": ["angular-eslint"]
   }
 }
