@@ -18,7 +18,7 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "src/assets/",
+                "input": "src/assets/images",
                 "output": "assets"
               }
             ],
@@ -76,7 +76,7 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "src/assets/",
+                "input": "src/assets/images",
                 "output": "assets"
               }
             ],
