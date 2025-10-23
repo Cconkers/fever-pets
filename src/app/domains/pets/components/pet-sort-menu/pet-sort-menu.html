@@ -1,8 +1,16 @@
 <!-- Pet sort menu -->
 
-  <!-- Pet language menu -->
-  <div class="pets-list-menu--sort">
-    <button matButton="elevated" [matMenuTriggerFor]="animals">{{ i18n.t('pet.sortPetButtom') }}</button>
+<!-- Pet language menu -->
+<div class="pets-list-menu--sort">
+  <button matButton="elevated" [matMenuTriggerFor]="animals">{{ i18n.t('pet.sortPetButtom') }} </button>
+
+  <p>
+    @if( petsStore.sortPets()?.sortValue && petsStore.sortPets()?.sortDirection) {
+    {{i18n.t('pet.actualSort')}} {{
+    i18n.t(addPetPrefix() + petsStore.sortPets()!.sortValue)}}
+    {{ i18n.t(petsStore.sortPets()!.sortDirection!) | titlecase }}
+    }
+  </p>
 
 </div>
 

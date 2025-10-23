@@ -11,7 +11,7 @@ import { PetsPaginator } from '../../components/pets-paginator/pets-paginator';
 
 
 @Component({
-  selector: 'pets-list',
+  selector: 'app-pets-list',
   standalone: true,
   imports: [PetCard, AppLoader, MatSelectModule, FormsModule, MatMenuModule, PetSortMenu, PetsPaginator],
   templateUrl: './pet-list.html',

@@ -1,17 +1,9 @@
 import { Pet, HealthTier, PetWithHealth } from "../models/pet.models";
 
-
-/**
- * Interface para el cálculo de salud de cualquier tipo de mascota.
- * Permite extender la lógica fácilmente si aparecen nuevos tipos (birds, reptiles...).
- */
 export interface HealthStrategy {
   compute(pet: Pet): HealthTier;
 }
 
-/**
- * Estrategia general para perros u otros animales sin reglas especiales.
- */
 export class DefaultHealthStrategy implements HealthStrategy {
   compute(pet: Pet): HealthTier {
     const score = pet.weight / (pet.height * pet.length);
@@ -21,9 +13,6 @@ export class DefaultHealthStrategy implements HealthStrategy {
   }
 }
 
-/**
- * Estrategia específica para gatos (con regla de “vidas”).
- */
 export class CatHealthStrategy extends DefaultHealthStrategy {
   override compute(pet: Pet): HealthTier {
     if (pet.number_of_lives === 1) return 'unhealthy';
@@ -31,9 +20,6 @@ export class CatHealthStrategy extends DefaultHealthStrategy {
   }
 }
 
-/**
- * Factory que decide qué estrategia usar según el tipo de pet.
- */
 export class HealthCalculator {
 
 

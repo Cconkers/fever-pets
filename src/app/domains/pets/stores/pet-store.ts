@@ -1,5 +1,5 @@
 import { Injectable, signal, inject } from '@angular/core';
-import { PetsApi } from './pets-api';
+import { PetsApi } from '../pets-api/pets-api';
 import { PetSortApi, PetSortDirection, PetSortValue, PetsPagination, PetWithHealth } from '../models/pet.models';
 import { SafeStorageService } from '../../../core/services/safe-storage.service';
 import { API_CONFIG } from '../../../core/http/api-config';
@@ -80,13 +80,11 @@ export class PetsStore {
   loadPetDetail(): void {
     this.isLoadingPets.set(true);
     const urlId = this.router.url.split('/').pop();
-    console.log(urlId);
 
     if (urlId && !isNaN(+urlId)) {
       this.petIdSelected.set(+urlId);
     } else {
       const storedId = this.storageSafe.getItem(PET_DETAIL_KEY);
-      console.log(storedId);
       if (storedId) {
         this.petIdSelected.set(+storedId);
       } else {
@@ -97,9 +95,13 @@ export class PetsStore {
 
     this.apiPets.getPetDetail(this.petIdSelected()).subscribe({
       next: (pet) => {
-        this.petDetail.set(pet);
-        this.isLoadingPets.set(false);
-        this.router.navigate(['/pets', pet.id]);
+        if (pet) {
+          this.petDetail.set(pet);
+          this.isLoadingPets.set(false);
+          this.router.navigate(['/pets', pet.id]);
+        } else {
+          this.router.navigate(['/pets']);
+        }
       },
       error: (err) => {
         console.error('Error loading pet detail', err);

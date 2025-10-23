@@ -1,4 +1,3 @@
-// pets-favorites.service.ts
 import { inject, Injectable, signal } from '@angular/core';
 import { PetWithHealth } from '../models/pet.models';
 import { ToastService } from '../../../shared/services/toast.service';
@@ -43,7 +42,7 @@ export class PetFavoritesService {
     );
   }
 
-  private restoreFavorite() {
+  public restoreFavorite() {
     const saved = this.storageSafe.getItem(FAVORITE_KEY);
     if (!saved) return;
 

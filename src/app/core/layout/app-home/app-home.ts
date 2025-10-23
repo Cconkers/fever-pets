@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, effect, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { PetsStore } from '../../../domains/pets/stores/pet-store';
 import { MatMenu, MatMenuModule } from '@angular/material/menu';

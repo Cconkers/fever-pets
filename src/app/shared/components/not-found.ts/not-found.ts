@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 
 @Component({
-  selector: 'not-found',
+  selector: 'app-not-found',
   imports: [],
   template: `<h1>NOT FOUND</h1>`,
   styles: [`

@@ -2,13 +2,13 @@
 
 <!-- Pet list upper menu bar -->
 <div class="pets-list-menu">
-  <pets-sort-menu></pets-sort-menu>
+  <app-pets-sort-menu></app-pets-sort-menu>
 </div>
 
 <!-- Main section pets list-->
 <section class="pets-main-section">
   @for (pet of pets(); track pet.id) {
-  <pet-card [pet]="pet"></pet-card>
+  <app-pet-card [pet]="pet"></app-pet-card>
   } @empty {
   <h1>{{ i18n.t('pet.noPetsFound') }}</h1>
   }
@@ -16,7 +16,7 @@
 
 <!-- Lower section pets list -->
 <!-- Pets paginator -->
-<pets-paginator></pets-paginator>
+<app-pets-paginator></app-pets-paginator>
 } @placeholder {
 <!-- Loader -->
 <app-loader></app-loader>

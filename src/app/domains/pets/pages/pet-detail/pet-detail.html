@@ -1,32 +1,47 @@
+<!-- Come back button -->
 <button matButton="elevated" (click)="goBack()">
   <mat-icon>arrow_back</mat-icon>
   {{ i18n.t('back') }}
 </button>
 
+<!-- Pet detail -->
 @defer (when !petsStore.isLoadingPets() && pet()) {
-<div class="pet-detail">
+<section class="pet-detail_container">
 
-  <div class="pet-details_image-title">
-    <h2>{{ i18n.t('pet.profile', { name: pet().name, kind:
-      i18n.t(`pet.kind.${pet().kind.toLowerCase()}`) }) }}</h2>
-    <img [src]="pet().photo_url" [alt]="pet().kind" class="pet-detail__img" />
-  </div>
-
-
-  <div class="pet-details_stats">
-    <p><strong>{{ i18n.t('pet.status') }}:</strong> {{
-      i18n.t(`pet.status.${pet().healthTier}`) }}</p>
+  <!-- Pet stats on the left -->
+  <article class="pet-detail_container_left">
     <p><strong>{{ i18n.t('pet.length') }}:</strong> {{ pet().length }} cm</p>
     <p><strong>{{ i18n.t('pet.height') }}:</strong> {{ pet().height }} cm</p>
     <p><strong>{{ i18n.t('pet.weight') }}:</strong> {{ pet().weight }} g</p>
-  </div>
+  </article>
 
-  <div class="pet-details_description">
-    <p><strong>{{ i18n.t('pet.description') }}:</strong></p>
-    <p> {{ pet().description }}</p>
-  </div>
+  <!-- Pet name, kind and image on center-->
+  <article class="pet-detail_container_center">
+    <!-- Pet title -->
+    <h2 class="pet-detail_container_center--title">{{ i18n.t('pet.profile', { name: pet().name, kind:
+      i18n.t(`pet.kind.${pet().kind.toLowerCase()}`) }) }}</h2>
 
-</div>
+    <!-- Pet image -->
+    <img appImageFallback="assets/images/pet-placeholder.png" [src]="pet().photo_url" [alt]="pet().kind"
+      class="pet-detail_container_center--img" />
+
+    <!-- Pet description -->
+    <div class="pet-detail_container_center--description">
+      <p><strong>{{ i18n.t('pet.description') }}:</strong></p>
+      <p> {{ pet().description }}</p>
+    </div>
+
+  </article>
+
+  <!-- Pet status on the right -->
+  <article class="pet-detail_container_right">
+    <p><strong>{{ i18n.t('pet.status') }}:</strong> </p>
+    <h3 class="health-chip" [ngClass]="getClassHealth(pet().healthTier)">{{
+      i18n.t(`pet.status.${pet().healthTier}`) }}</h3>
+  </article>
+
+</section>
 } @placeholder {
+<!-- Loading spinner -->
 <app-loader></app-loader>
 }

@@ -10,7 +10,7 @@ import { MatButton } from '@angular/material/button';
 
 
 @Component({
-  selector: 'pet-of-day-button',
+  selector: 'app-pet-of-day-button',
   standalone: true,
   imports: [MatSelectModule, FormsModule, MatMenuModule, MatIcon, MatButton],
   templateUrl: './pet-of-day-button.html',

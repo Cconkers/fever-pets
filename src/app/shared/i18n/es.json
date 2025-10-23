@@ -28,5 +28,14 @@
   "language.en": "Inglés",
   "language.es": "Español",
 
-  "back": "Atrás"
+  "back": "Atrás",
+
+  "pet.actualSort": "Ordenamiento actual: ",
+  "Desc": "Descendente",
+  "Asc": "Ascendente",
+
+  "networkError": "Error de red: {error}",
+  "resourceNotFound": "Recurso no encontrado.",
+  "internalServerError": "Error interno del servidor.",
+  "error": "Error {status}: {statusText}"
 }

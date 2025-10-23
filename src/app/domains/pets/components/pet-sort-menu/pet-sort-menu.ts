@@ -6,12 +6,13 @@ import { FormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButton } from '@angular/material/button';
 import { I18nService } from '../../../../shared/services/i18n.service';
+import { TitleCasePipe } from '@angular/common';
 
 
 @Component({
-  selector: 'pets-sort-menu',
+  selector: 'app-pets-sort-menu',
   standalone: true,
-  imports: [MatSelectModule, FormsModule, MatMenuModule, MatButton],
+  imports: [MatSelectModule, FormsModule, MatMenuModule, MatButton, TitleCasePipe],
   templateUrl: './pet-sort-menu.html',
   styleUrl: './pet-sort-menu.scss',
 })
@@ -30,6 +31,10 @@ export class PetSortMenu {
     { value: 'length', viewValue: 'Length' },
     { value: 'kind', viewValue: 'Kind' },
   ];
+
+  addPetPrefix() {
+    return 'pet.';
+  }
 
   updateSortValue(value: PetSortValue) {
     this.petSortValue = value;

@@ -1,7 +1,8 @@
 <mat-card class="pet-card" (click)="goToDetail(pet.id)" appearance="outlined">
   <div class="pet-card_left-content">
     <div class="pet-card_left-content_image-container">
-      <img class="pet-card_left-content_image-container--pet-img" [src]="pet.photo_url" [alt]="pet.kind">
+      <img class="pet-card_left-content_image-container--pet-img" appImageFallback="assets/images/pet-placeholder.png"
+        [src]="pet.photo_url" [alt]="pet.kind">
     </div>
   </div>
 
@@ -29,7 +30,7 @@
 
       <mat-card-actions class="pet-card_center-content_right-down_actions">
         <!-- Pet of day button -->
-        <pet-of-day-button [pet]="pet"></pet-of-day-button>
+        <app-pet-of-day-button [pet]="pet"></app-pet-of-day-button>
       </mat-card-actions>
     </div>
 

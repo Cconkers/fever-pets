@@ -40,7 +40,7 @@ export class PetsApi {
         }),
         catchError(err => {
           console.error('Error fetching pet detail', err);
-          return of({} as PetWithHealth);
+          return of(null);
         })
       );
   }

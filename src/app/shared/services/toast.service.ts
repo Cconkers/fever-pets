@@ -5,10 +5,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class ToastService {
   private snackbar = inject(MatSnackBar);
 
-  show(message: string, duration = 4000): void {
+  show(message: string, duration = 4000) {
     this.snackbar.open(message, undefined, {
+      politeness: 'assertive',
       duration,
-      panelClass: ['toast-message'],
       horizontalPosition: 'center',
       verticalPosition: 'top',
     });

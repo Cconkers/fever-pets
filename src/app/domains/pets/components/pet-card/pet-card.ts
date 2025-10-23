@@ -6,11 +6,12 @@ import { HealthCalculator } from "../../pets-utils/pets-utils";
 import { I18nService } from "../../../../shared/services/i18n.service";
 import { PetsStore } from "../../stores/pet-store";
 import { PetOfDayButton } from "../pets-of-day-button/pet-of-day-button";
+import { ImageFallbackDirective } from "../../../../shared/directives/image-fallback";
 
 @Component({
-  selector: 'pet-card',
+  selector: 'app-pet-card',
   standalone: true,
-  imports: [MatCardModule, NgClass, PetOfDayButton],
+  imports: [MatCardModule, NgClass, PetOfDayButton, ImageFallbackDirective],
   templateUrl: './pet-card.html',
   styleUrl: './pet-card.scss',
 })
@@ -25,9 +26,6 @@ export class PetCard {
   }
 
   goToDetail(petId: number) {
-    // if (event) event.stopPropagation();
-    console.log();
-
     this.petsStore.updatePetDetail(petId);
   }
 

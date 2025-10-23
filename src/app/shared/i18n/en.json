@@ -32,5 +32,13 @@
   "language.en": "English",
   "language.es": "Spanish",
 
-  "back": "Back"
+  "pet.actualSort": "Actual sort: ",
+  "back": "Back",
+  "Desc": "Descending",
+  "Asc": "Ascending",
+
+  "networkError": "Network error: {error}",
+  "resourceNotFound": "Requested resource not found.",
+  "internalServerError": "Internal server error.",
+  "error": "Error {status}: {statusText}"
 }
