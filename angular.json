@@ -19,7 +19,7 @@
               {
                 "glob": "**/*",
                 "input": "src/assets/images",
-                "output": "assets"
+                "output": "assets/images"
               }
             ],
             "styles": ["src/styles/custom-theme.scss", "src/styles/styles.scss"],
@@ -77,7 +77,7 @@
               {
                 "glob": "**/*",
                 "input": "src/assets/images",
-                "output": "assets"
+                "output": "assets/images"
               }
             ],
             "styles": ["src/styles/styles.scss"]
