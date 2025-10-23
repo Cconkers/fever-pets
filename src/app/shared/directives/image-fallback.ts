@@ -5,7 +5,7 @@ import { Directive, HostListener, Input } from '@angular/core';
   standalone: true
 })
 export class ImageFallbackDirective {
-  @Input() appImageFallback = 'assets/images/pet-placeholder.png';
+  @Input() appImageFallback = 'assets/pet-placeholder.png';
 
   @HostListener('error', ['$event'])
   onError(event: Event) {
